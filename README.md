@@ -102,7 +102,7 @@ This Terraform module provisions an Azure Custom Script Extension that installs 
 
 - `virtual_machine_id`: The ID of the virtual machine.
 
-### terraform.tfvars
+## terraform.tfvars
 
 `terraform.tfvars` contains the input variables needed for the Terraform configuration to run. Ensure that all variables are set with appropriate values in this file before running the Terraform configuration.
 
