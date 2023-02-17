@@ -115,8 +115,8 @@ To use this project, follow these steps:
 3. Navigate to the repository directory.
 4. Run `terraform init`.
 5. Run `terraform validate` to see if the code is valid.
-6. Run `terraform plan -out "./data/plan.txt"`
-7. Run `terraform apply "./data/plan.txt"`
+6. Run `terraform plan -out "./data/plan.txt"`.
+7. Run `terraform apply "./data/plan.txt"`.
 
 ## License
 
