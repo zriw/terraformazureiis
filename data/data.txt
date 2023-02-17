@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample Website</title>
+  </head>
+  <body>
+    <h1>Welcome to the Sample Website</h1>
+    <p>This is a sample website created to test functions within Azure and Terraform.</p>
+    <h2>About Us</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer in volutpat sapien. Sed auctor, risus at rhoncus viverra, libero libero bibendum libero.</p>
+    <h2>Extra stuff</h2>
+    <ul>
+      <li>Something1</li>
+      <li>Something2</li>
+      <li>Something3</li>
+    </ul>
+    <h2>Contact</h2>
+    <p>sample@example.test</p>
+  </body>
+</html>
+
+$date = Get-Date -Format "yyyy-MM-dd_HH-mm-ss"
+$computerName = $env:COMPUTERNAME
+
+$logFile = "cpu_ram_usage.csv"
+
+if (!(Test-Path $logFile)) {
+    # Create the log file if it doesn't exist
+    "Date,ComputerName,CPULoad,RAMUsage" | Out-File $logFile
+}
+
+while ($true) {
+    $cpuLoad = Get-WmiObject win32_processor | Measure-Object -property LoadPercentage -Average | Select-Object -ExpandProperty Average
+    $ramUsage = (Get-WmiObject Win32_OperatingSystem | Select-Object -ExpandProperty TotalVisibleMemorySize) - (Get-WmiObject Win32_OperatingSystem | Select-Object -ExpandProperty FreePhysicalMemory)
+
+    $data = [PSCustomObject]@{
+      Date = $date
+      ComputerName = $computerName
+      CPULoad = $cpuLoad
+      RAMUsage = "{0:N2}" -f (($ramUsage / 1MB))
+    }
+    $data | Export-Csv -Path $logFile -NoTypeInformation -Append
+    Start-Sleep 10
+}

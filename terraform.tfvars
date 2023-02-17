@@ -1,0 +1,18 @@
+subscription_id               = "00000000-0000-0000-0000-000000000000"
+location                      = "physical location (Example: northeurope)"
+resource_group_name           = "name of the resource group"
+vmname                        = "name of the virtual machine"
+admin_usename                 = "username used to login to the virtual machine"
+admin_password                = "password used to login to the virtual machine"
+virtual_network_name          = "name of the virtual network"
+virtual_network_address_space = [ "x.x.x.x/x" ]
+subnet_name                   = "name of the subnet"
+subnet_address_prefixes       = [ "x.x.x.x/x" ]
+private_ip_address            = "x.x.x.x"
+public_ip_name                = "name of the public ip"
+sgname                        = "name of the security group"
+os_disk_type                  = "os disk type (Example: Standard_LRS)"
+vm_size                       = "VM size (Example: Standard_B2s)"
+security_rule_name            = "name of the security rule"
+priority_number               = "type = number so no quotation marks. (Example: 100)"
+destination_port_ranges       = "List of ports in type = list(number) so no quotation marks. (Example: [ 80,3389,5985,5986 ])"
