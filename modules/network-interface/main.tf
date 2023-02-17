@@ -3,7 +3,7 @@ resource "azurerm_network_interface" "web-server-nic" {
     location            = var.location
     resource_group_name = var.resource_group_name
     ip_configuration {
-        name                          = "ipcon-1"
+        name                          = "ip_con"
         subnet_id                     = var.subnet_id
         private_ip_address_allocation = "Static"
         private_ip_address            = var.private_ip_address
