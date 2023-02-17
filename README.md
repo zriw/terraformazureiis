@@ -1,7 +1,7 @@
 # Terraform Azure Web Server
 >This code is provided as is for educational purposes only, and is not intended for use in production environments.
 
-This project deploys a web server on Azure using Terraform. 
+This project deploys an IIS web server on Azure using Terraform. 
 
 >**IMPORTANT**: This Terraform code will create Azure resources that may incur charges on your subscription. Please make sure to review the code and understand the costs before proceeding with deployment.
 
